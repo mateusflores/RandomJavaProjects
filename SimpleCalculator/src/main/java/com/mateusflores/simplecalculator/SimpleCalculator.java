@@ -4,6 +4,10 @@
 
 package com.mateusflores.simplecalculator;
 
+import view.CalculatorView;
+
+
+
 /**
  *
  * @author mateus
@@ -11,6 +15,7 @@ package com.mateusflores.simplecalculator;
 public class SimpleCalculator {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        CalculatorView view = new CalculatorView();
+
     }
 }
