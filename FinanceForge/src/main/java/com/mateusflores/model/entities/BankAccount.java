@@ -49,12 +49,16 @@ public class BankAccount {
         return id;
     }
 
-    public Double getAmount() {
-        return amount;
+    public void withdraw(Double amountToWithdraw) {
+        this.amount += amountToWithdraw < 0 ? amountToWithdraw : (-1 * amountToWithdraw);
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
+    public void deposit(Double amountToDeposit) {
+        this.amount += amountToDeposit;
+    }
+
+    public double getAmount() {
+        return this.amount;
     }
 
     public UserAccount getOwner() {
@@ -71,6 +75,10 @@ public class BankAccount {
 
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public void addTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
     }
 
     @Override

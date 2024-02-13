@@ -3,6 +3,7 @@ package com.mateusflores.model.entities;
 import com.mateusflores.util.converter.LocalDateAttributeConverter;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -28,13 +29,16 @@ public class Transaction {
     @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate transactionDate;
 
+    @Column
+    private boolean isTransactionCompleted = false;
+
     public Transaction() {
     }
 
-    public Transaction(Double value, BankAccount bankAccount, LocalDate transactionDate) {
+    public Transaction(Double value, BankAccount bankAccount) {
         this.value = value;
         this.bankAccount = bankAccount;
-        this.transactionDate = transactionDate;
+        this.transactionDate = LocalDate.now();
     }
 
     public Integer getId() {
@@ -63,6 +67,14 @@ public class Transaction {
 
     public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public boolean isTransactionCompleted() {
+        return isTransactionCompleted;
+    }
+
+    public void setTransactionCompleted(boolean transactionCompleted) {
+        isTransactionCompleted = transactionCompleted;
     }
 
     @Override
