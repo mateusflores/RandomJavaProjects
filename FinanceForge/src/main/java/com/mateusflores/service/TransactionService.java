@@ -9,7 +9,7 @@ public class TransactionService {
     private static boolean isTransactionValid(Transaction transaction) {
         Double actualAmount = transaction.getBankAccount().getAmount();
         Double transactionValue = transaction.getValue();
-        return !(actualAmount - transactionValue < 0 && transactionValue < 0);
+        return !(actualAmount + transactionValue < 0 && transactionValue < 0);
     }
 
     public static void processBankPayment(Transaction transaction) {
