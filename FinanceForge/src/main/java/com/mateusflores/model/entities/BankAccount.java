@@ -26,6 +26,8 @@ public class BankAccount {
     
     private Double amount = 0D;
     
+    private String accountName;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserAccount owner;
@@ -40,7 +42,8 @@ public class BankAccount {
     public BankAccount() {
     }
 
-    public BankAccount(UserAccount owner, LocalDate creationDate) {
+    public BankAccount(String accountName, UserAccount owner, LocalDate creationDate) {
+        this.accountName = accountName;
         this.owner = owner;
         this.creationDate = creationDate;
     }
